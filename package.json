@@ -40,6 +40,9 @@
 	"dependencies": {
 		"uglify-js": "^2 || ^3"
 	},
+	"peerDependencies": {
+		"uglify-js": "^2 || ^3"
+	},
 	"engines": {
 		"node": ">= 0.6"
 	}
