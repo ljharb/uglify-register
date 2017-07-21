@@ -36,7 +36,7 @@
 		"tape": "^4.7.0"
 	},
 	"dependencies": {
-		"uglify-js": "^3.0.25"
+		"uglify-js": "^2 || ^3"
 	},
 	"engines": {
 		"node": ">= 0.6"

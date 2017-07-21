@@ -2,7 +2,9 @@
 
 var extensions = require.extensions;
 var orig = {};
-var minify = require('uglify-js').minify;
+var UglifyJS = require('uglify-js');
+var minify = UglifyJS.minify;
+var isV2 = !!UglifyJS.parse;
 
 module.exports = {
 	register: function register(options) {
@@ -33,7 +35,8 @@ module.exports = {
 					/* eslint no-underscore-dangle: 0 */
 					var oldCompile = module._compile;
 					module._compile = function (code, file) {
-						var newCode = minify(code, uglifyOptions).code;
+						/* istanbul ignore next */ var minifyArg = isV2 ? filename : code;
+						var newCode = minify(minifyArg, uglifyOptions).code;
 						module._compile = oldCompile;
 						module._compile(newCode, file);
 					};
