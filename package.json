@@ -5,8 +5,12 @@
 	"main": "index.js",
 	"scripts": {
 		"lint": "eslint .",
+		"security": "nsp check",
 		"pretest": "npm run lint",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "npm run tests-only",
+		"posttest": "npm run security",
+		"tests-only": "node test && node test/auto",
+		"coverage": "nyc npm run tests-only"
 	},
 	"repository": {
 		"type": "git",
@@ -26,7 +30,10 @@
 	"homepage": "https://github.com/ljharb/uglify-register#readme",
 	"devDependencies": {
 		"@ljharb/eslint-config": "^12.1.0",
-		"eslint": "^4.2.0"
+		"eslint": "^4.2.0",
+		"nsp": "^2.6.3",
+		"nyc": "^11.0.3",
+		"tape": "^4.7.0"
 	},
 	"dependencies": {
 		"uglify-js": "^3.0.25"

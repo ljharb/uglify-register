@@ -10,6 +10,7 @@
 	"rules": {
 		"comma-dangle": [2, "always-multiline"],
 		"func-name-matching": [2, "always"],
+		"dot-notation": [2, { "allowKeywords": true }],
 		"max-statements": 0,
 	},
 }
