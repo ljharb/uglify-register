@@ -4,5 +4,6 @@
 	"extends": "@ljharb",
 
 	"rules": {
-	}
+		"func-name-matching": [2, "always"],
+	},
 }
