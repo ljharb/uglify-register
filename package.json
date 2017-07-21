@@ -4,6 +4,7 @@
 	"description": "uglify require hook",
 	"main": "index.js",
 	"scripts": {
+		"prepublish": "safe-publish-latest",
 		"lint": "eslint .",
 		"security": "nsp check",
 		"pretest": "npm run lint",
@@ -33,6 +34,7 @@
 		"eslint": "^4.2.0",
 		"nsp": "^2.6.3",
 		"nyc": "^11.0.3",
+		"safe-publish-latest": "^1.1.1",
 		"tape": "^4.7.0"
 	},
 	"dependencies": {
