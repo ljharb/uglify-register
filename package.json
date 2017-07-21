@@ -1,0 +1,25 @@
+{
+	"name": "uglify-register",
+	"version": "0.0.0",
+	"description": "uglify require hook",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ljharb/uglify-register.git"
+	},
+	"keywords": [
+		"uglify",
+		"require",
+		"hook",
+		"register"
+	],
+	"author": "Jordan Harband <ljharb@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/ljharb/uglify-register/issues"
+	},
+	"homepage": "https://github.com/ljharb/uglify-register#readme"
+}
