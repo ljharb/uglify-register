@@ -3,7 +3,13 @@
 
 	"extends": "@ljharb",
 
+	"parserOptions": {
+		"ecmaVersion": "5",
+	},
+
 	"rules": {
+		"comma-dangle": [2, "always-multiline"],
 		"func-name-matching": [2, "always"],
+		"max-statements": 0,
 	},
 }
