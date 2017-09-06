@@ -33,7 +33,7 @@
 		"@ljharb/eslint-config": "^12.2.1",
 		"eslint": "^4.6.1",
 		"nsp": "^2.8.0",
-		"nyc": "^11.2.0",
+		"nyc": "^10.3.2",
 		"safe-publish-latest": "^1.1.1",
 		"tape": "^4.8.0"
 	},
@@ -45,5 +45,11 @@
 	},
 	"engines": {
 		"node": ">= 0.6"
+	},
+	"greenkeeper": {
+		"//": "nyc is ignored because it requires node 4+, and we support older than that",
+		"ignore": [
+			"nyc"
+		]
 	}
 }
