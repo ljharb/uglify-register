@@ -1,6 +1,6 @@
 {
 	"name": "uglify-register",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "uglify require hook",
 	"main": "index.js",
 	"scripts": {
