@@ -4,7 +4,7 @@ var extensions = require.extensions;
 var orig = {};
 var UglifyJS = require('uglify-js');
 var minify = UglifyJS.minify;
-var isV2 = !!UglifyJS.parse;
+var isV2 = !!UglifyJS.parse && !!UglifyJS.defaults;
 
 module.exports = {
 	register: function register(options) {

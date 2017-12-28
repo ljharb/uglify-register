@@ -30,6 +30,7 @@ env:
     - TEST=true
   matrix:
     - UGLIFY=2
+    - UGLIFY=3.2
     - UGLIFY=3
 matrix:
   fast_finish: true
