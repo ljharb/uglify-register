@@ -2,6 +2,7 @@ language: node_js
 os:
  - linux
 node_js:
+  - "10"
   - "9"
   - "8"
   - "7"
@@ -14,6 +15,7 @@ node_js:
   - "0.12"
   - "0.10"
   - "0.8"
+  - "0.6"
 before_install:
   - 'nvm install-latest-npm'
 install:
@@ -48,10 +50,6 @@ matrix:
     - node_js: "0.9"
       env: UGLIFY=2 TEST=true ALLOW_FAILURE=true
     - node_js: "0.9"
-      env: UGLIFY=3 TEST=true ALLOW_FAILURE=true
-    - node_js: "0.6"
-      env: UGLIFY=2 TEST=true ALLOW_FAILURE=true
-    - node_js: "0.6"
       env: UGLIFY=3 TEST=true ALLOW_FAILURE=true
     - node_js: "0.4"
       env: UGLIFY=2 TEST=true ALLOW_FAILURE=true
