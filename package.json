@@ -6,12 +6,14 @@
 	"scripts": {
 		"prepublish": "safe-publish-latest",
 		"lint": "eslint .",
-		"security": "nsp check",
 		"pretest": "npm run lint",
 		"test": "npm run tests-only",
-		"posttest": "npm run security",
+		"posttest": "npm run audit",
 		"tests-only": "node test && node test/auto",
-		"coverage": "nyc npm run tests-only"
+		"coverage": "nyc npm run tests-only",
+		"preaudit": "npm install --package-lock --package-lock-only",
+		"audit": "npm audit",
+		"postaudit": "rm package-lock.json"
 	},
 	"repository": {
 		"type": "git",
@@ -32,7 +34,6 @@
 	"devDependencies": {
 		"@ljharb/eslint-config": "^13.0.0",
 		"eslint": "^5.2.0",
-		"nsp": "^3.2.1",
 		"nyc": "^10.3.2",
 		"safe-publish-latest": "^1.1.1",
 		"tape": "^4.9.1"
