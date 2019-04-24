@@ -39,7 +39,7 @@
 		"tape": "^4.9.2"
 	},
 	"dependencies": {
-		"uglify-js": "^2 || ^3"
+		"uglify-js": "^3.5.7"
 	},
 	"peerDependencies": {
 		"uglify-js": "^2 || ^3"
