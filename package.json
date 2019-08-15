@@ -8,7 +8,7 @@
 		"lint": "eslint .",
 		"pretest": "npm run lint",
 		"test": "npm run tests-only",
-		"posttest": "npx aud",
+		"posttest": "NODE_ENV=production npx aud",
 		"tests-only": "node test && node test/auto",
 		"coverage": "nyc npm run tests-only"
 	},
