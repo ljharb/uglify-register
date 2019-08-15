@@ -29,11 +29,11 @@
 	},
 	"homepage": "https://github.com/ljharb/uglify-register#readme",
 	"devDependencies": {
-		"@ljharb/eslint-config": "^13.1.1",
-		"eslint": "^5.12.1",
+		"@ljharb/eslint-config": "^14.0.2",
+		"eslint": "^6.1.0",
 		"nyc": "^10.3.2",
-		"safe-publish-latest": "^1.1.2",
-		"tape": "^4.9.2"
+		"safe-publish-latest": "^1.1.3",
+		"tape": "^4.11.0"
 	},
 	"dependencies": {
 		"uglify-js": "^2 || ^3"
