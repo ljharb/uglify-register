@@ -34,10 +34,10 @@ module.exports = {
 				if (!isExcluded) {
 					/* eslint no-underscore-dangle: 0 */
 					var oldCompile = module._compile;
-					module._compile = function (code, file) {
+					module._compile = function (code, file) { // eslint-disable-line no-param-reassign
 						/* istanbul ignore next */ var minifyArg = isV2 ? filename : code;
 						var newCode = minify(minifyArg, uglifyOptions).code;
-						module._compile = oldCompile;
+						module._compile = oldCompile; // eslint-disable-line no-param-reassign
 						module._compile(newCode, file);
 					};
 					/* eslint no-underscore-dangle: 1 */
