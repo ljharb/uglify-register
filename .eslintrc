@@ -1,11 +1,7 @@
 {
 	"root": true,
 
-	"extends": "@ljharb",
-
-	"parserOptions": {
-		"ecmaVersion": 5,
-	},
+	"extends": "@ljharb/eslint-config/node/0.4",
 
 	"rules": {
 		"comma-dangle": [2, "always-multiline"],

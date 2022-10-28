@@ -4,12 +4,13 @@
 	"description": "uglify require hook",
 	"main": "index.js",
 	"scripts": {
-		"prepublish": "safe-publish-latest",
-		"lint": "eslint .",
+		"prepublishOnly": "safe-publish-latest",
+		"prepublish": "not-in-publish || npm run prepublishOnly",
+		"lint": "eslint --ext=js,mjs .",
 		"pretest": "npm run lint",
 		"test": "npm run tests-only",
-		"posttest": "npx aud --production",
-		"tests-only": "node test && node test/auto",
+		"posttest": "aud --production",
+		"tests-only": "tape test && tape test/auto",
 		"coverage": "nyc npm run tests-only",
 		"version": "auto-changelog && git add CHANGELOG.md",
 		"postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
@@ -34,13 +35,14 @@
 	},
 	"homepage": "https://github.com/ljharb/uglify-register#readme",
 	"devDependencies": {
-		"@ljharb/eslint-config": "^17.1.0",
-		"aud": "^1.1.2",
-		"auto-changelog": "^2.0.0",
-		"eslint": "^7.1.0",
+		"@ljharb/eslint-config": "^21.0.0",
+		"aud": "^2.0.1",
+		"auto-changelog": "^2.4.0",
+		"eslint": "=8.8.0",
+		"in-publish": "^2.0.1",
 		"nyc": "^10.3.2",
-		"safe-publish-latest": "^1.1.4",
-		"tape": "^5.0.1"
+		"safe-publish-latest": "^2.0.0",
+		"tape": "^5.6.1"
 	},
 	"dependencies": {
 		"uglify-js": "^2 || ^3"
@@ -51,17 +53,12 @@
 	"engines": {
 		"node": ">= 0.6"
 	},
-	"greenkeeper": {
-		"//": "nyc is ignored because it requires node 4+, and we support older than that",
-		"ignore": [
-			"nyc"
-		]
-	},
 	"auto-changelog": {
 		"output": "CHANGELOG.md",
 		"template": "keepachangelog",
 		"unreleased": false,
 		"commitLimit": false,
-		"backfillLimit": false
+		"backfillLimit": false,
+		"hideCredit": true
 	}
 }
