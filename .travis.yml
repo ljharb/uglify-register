@@ -29,8 +29,6 @@ install:
   - 'if [ "${TRAVIS_NODE_VERSION}" = "0.6" ] || [ "${TRAVIS_NODE_VERSION}" = "0.9" ]; then nvm install --latest-npm 0.8 && npm install && nvm use "${TRAVIS_NODE_VERSION}"; else npm install; fi;'
   - 'if [ -n "${UGLIFY-}" ]; then npm install "uglify-js@${UGLIFY-}"; fi'
 script:
-  - 'if [ -n "${PRETEST-}" ]; then npm run pretest ; fi'
-  - 'if [ -n "${POSTTEST-}" ]; then npm run posttest ; fi'
   - 'if [ -n "${COVERAGE-}" ]; then npm run coverage ; fi'
   - 'if [ -n "${TEST-}" ]; then npm run tests-only ; fi'
 sudo: false
@@ -44,10 +42,6 @@ env:
 matrix:
   fast_finish: true
   include:
-    - node_js: "lts/*"
-      env: PRETEST=true
-    - node_js: "lts/*"
-      env: POSTTEST=true
     - node_js: "4"
       env: COVERAGE=true
   allow_failures:
