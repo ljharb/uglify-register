@@ -1,0 +1,48 @@
+name: 'Tests: node.js >= 10'
+
+on: [pull_request, push]
+
+jobs:
+  matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      latest: ${{ steps.set-matrix.outputs.requireds }}
+      nonlatest: ${{ steps.set-matrix.outputs.optionals }}
+    steps:
+      - uses: ljharb/actions/node/matrix@main
+        id: set-matrix
+        with:
+          versionsAsRoot: true
+          type: majors
+          preset: '> 0.6'
+
+  tests:
+    needs: [matrix]
+    name: 'node majors'
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ${{ fromJson(needs.matrix.outputs.latest) }}
+        uglify:
+          - 3
+          - 3.2
+          - 2
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ljharb/actions/node/install@main
+        name: 'nvm install ${{ matrix.node-version }} && npm install'
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache-node-modules-key: node_modules-${{ github.workflow }}-${{ github.action }}-${{ github.run_id }}
+      - run: npm run coverage
+      - uses: codecov/codecov-action@v3
+
+  node:
+    name: 'node >= 10'
+    needs: [tests]
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'echo tests completed'
