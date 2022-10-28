@@ -61,3 +61,5 @@ typings/
 npm-shrinkwrap.json
 yarn.lock
 package-lock.json
+
+.npmignore
